@@ -74,7 +74,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MovieViewHol
         }
 
         public void bind(Movie movie) {
-            String vote_average = Double.toString(movie.getVote_Average());
+            String vote_average = Double.toString(movie.getAverage());
 
 
             tvTitle.setText(movie.getTitle());

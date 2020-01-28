@@ -7,6 +7,7 @@ import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -52,26 +53,28 @@ public class MovieDetailActivity extends AppCompatActivity {
         imgPhoto = findViewById(R.id.img_photo);
 
         movie = getIntent().getParcelableExtra(EXTRA_MOVIE);
-        getSupportActionBar().setTitle(movie.getTitle());
 
-        progressBar = findViewById(R.id.progressDetailMovie);
-        progressBar.setVisibility(View.VISIBLE);
+        if (movie != null) {
+            getSupportActionBar().setTitle(movie.getTitle());
 
+            progressBar = findViewById(R.id.progressDetailMovie);
+            progressBar.setVisibility(View.VISIBLE);
 
-        String popularity = Double.toString(movie.getPopularity());
-        String vote_average = Double.toString(movie.getVote_Average());
+//            String popularity = movie.getPopularity().toString();
+            String vote_average = movie.getAverage().toString();
+            tvDateReleased.setText(movie.getRelease());
+            tvVoteCount.setText(movie.getCount());
+            tvVoteAverage.setText(vote_average);
+            tvOverview.setText(movie.getDetail());
+            txtLanguage.setText(movie.getLanguage());
+         //   tvPopularity.setText(popularity);
 
-        tvDateReleased.setText(movie.getRelease());
-        tvVoteCount.setText(movie.getCount());
-        tvVoteAverage.setText(vote_average);
-        tvOverview.setText(movie.getDetail());
-        txtLanguage.setText(movie.getLanguage());
-        tvPopularity.setText(popularity);
+            Glide.with(getApplicationContext())
+                    .load(BuildConfig.TMDB_URL_POSTER + movie.getPhoto())
+                    .into(imgPhoto);
+            progressBar.setVisibility(View.INVISIBLE);
+        }
 
-        Glide.with(getApplicationContext())
-                .load(BuildConfig.TMDB_URL_POSTER + movie.getPhoto())
-                .into(imgPhoto);
-        progressBar.setVisibility(View.INVISIBLE);
 
         favoriteHelper = FavoriteHelper.getInstance(getApplicationContext());
         favoriteHelper.open();

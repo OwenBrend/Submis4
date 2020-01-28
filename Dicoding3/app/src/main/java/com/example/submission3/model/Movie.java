@@ -51,7 +51,7 @@ public class Movie implements Parcelable {
     public void setCount(String count) {
         this.count = count;
     }
-    public double getVote_Average() {
+    public Double getAverage() {
         return vote_average;
     }
 

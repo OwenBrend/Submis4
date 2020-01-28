@@ -101,7 +101,7 @@ public class FavoriteHelper {
         ContentValues args = new ContentValues();
         args.put(_ID, movie.getId());
         args.put(TITLE, movie.getTitle());
-        args.put(RATING, movie.getVote_Average());
+        args.put(RATING, movie.getAverage());
         args.put(DATE, movie.getRelease());
         args.put(IMAGE, movie.getPhoto());
         args.put(IMAGE2, movie.getBanner());

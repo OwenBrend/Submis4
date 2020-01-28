@@ -10,6 +10,7 @@ public class DatabaseContract {
         static String TITLE = "title";
         static String DATE = "date";
         static String RATING = "rating";
+        static String POPULARITY = "popularity";
         static String IMAGE = "image";
         static String IMAGE2 = "image2";
         static String OVERVIEW = "overview";

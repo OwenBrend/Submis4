@@ -17,6 +17,7 @@ import static com.example.submission3.db.DatabaseContract.NoteColumns.DATE;
 import static com.example.submission3.db.DatabaseContract.NoteColumns.IMAGE;
 import static com.example.submission3.db.DatabaseContract.NoteColumns.IMAGE2;
 import static com.example.submission3.db.DatabaseContract.NoteColumns.OVERVIEW;
+import static com.example.submission3.db.DatabaseContract.NoteColumns.POPULARITY;
 import static com.example.submission3.db.DatabaseContract.NoteColumns.RATING;
 import static com.example.submission3.db.DatabaseContract.NoteColumns.TITLE;
 import static com.example.submission3.db.DatabaseContract.TABLE_FAV;
@@ -72,6 +73,7 @@ public class FavoriteHelper {
                 movie.setId(cursor.getInt(cursor.getColumnIndexOrThrow(_ID)));
                 movie.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(TITLE)));
                 movie.setAverage(cursor.getDouble(cursor.getColumnIndexOrThrow(RATING)));
+                movie.setPopularity(cursor.getDouble(cursor.getColumnIndexOrThrow(POPULARITY)));
                 movie.setPhoto(cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
                 movie.setRelease(cursor.getString(cursor.getColumnIndexOrThrow(DATE)));
                 movie.setBanner(cursor.getString(cursor.getColumnIndexOrThrow(IMAGE2)));
@@ -102,6 +104,7 @@ public class FavoriteHelper {
         args.put(_ID, movie.getId());
         args.put(TITLE, movie.getTitle());
         args.put(RATING, movie.getAverage());
+        args.put(POPULARITY, movie.getPopularity());
         args.put(DATE, movie.getRelease());
         args.put(IMAGE, movie.getPhoto());
         args.put(IMAGE2, movie.getBanner());
@@ -130,6 +133,7 @@ public class FavoriteHelper {
                 tvShow.setId(cursor.getInt(cursor.getColumnIndexOrThrow(_ID)));
                 tvShow.setTitle(cursor.getString(cursor.getColumnIndexOrThrow(TITLE)));
                 tvShow.setVote_average(cursor.getDouble(cursor.getColumnIndexOrThrow(RATING)));
+                tvShow.setPopularity(cursor.getDouble(cursor.getColumnIndexOrThrow(POPULARITY)));
                 tvShow.setPhoto(cursor.getString(cursor.getColumnIndexOrThrow(IMAGE)));
                 tvShow.setRelease(cursor.getString(cursor.getColumnIndexOrThrow(DATE)));
                 tvShow.setBanner(cursor.getString(cursor.getColumnIndexOrThrow(IMAGE2)));
@@ -160,6 +164,7 @@ public class FavoriteHelper {
         args.put(_ID, tvShow.getId());
         args.put(TITLE, tvShow.getTitle());
         args.put(RATING, tvShow.getVote_average());
+        args.put(POPULARITY, tvShow.getPopularity());
         args.put(DATE, tvShow.getRelease());
         args.put(IMAGE, tvShow.getPhoto());
         args.put(IMAGE2, tvShow.getBanner());

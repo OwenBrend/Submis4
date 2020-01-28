@@ -60,14 +60,14 @@ public class MovieDetailActivity extends AppCompatActivity {
             progressBar = findViewById(R.id.progressDetailMovie);
             progressBar.setVisibility(View.VISIBLE);
 
-//            String popularity = movie.getPopularity().toString();
+            String popularity = movie.getPopularity().toString();
             String vote_average = movie.getAverage().toString();
             tvDateReleased.setText(movie.getRelease());
             tvVoteCount.setText(movie.getCount());
             tvVoteAverage.setText(vote_average);
             tvOverview.setText(movie.getDetail());
             txtLanguage.setText(movie.getLanguage());
-         //   tvPopularity.setText(popularity);
+            tvPopularity.setText(popularity);
 
             Glide.with(getApplicationContext())
                     .load(BuildConfig.TMDB_URL_POSTER + movie.getPhoto())

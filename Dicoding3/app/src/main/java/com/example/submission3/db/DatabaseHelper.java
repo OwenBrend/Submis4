@@ -13,6 +13,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
+                    " %s REAL NOT NULL," +
                     " %s REAL NOT NULL)",
             DatabaseContract.TABLE_FAV,
             DatabaseContract.NoteColumns._ID,
@@ -21,7 +22,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DatabaseContract.NoteColumns.DATE,
             DatabaseContract.NoteColumns.IMAGE2,
             DatabaseContract.NoteColumns.OVERVIEW,
-            DatabaseContract.NoteColumns.RATING
+            DatabaseContract.NoteColumns.RATING,
+            DatabaseContract.NoteColumns.POPULARITY
     );
     private static final String SQL_CREATE_TABLE_FAV2 = String.format("CREATE TABLE %s"
                     + " (%s INTEGER PRIMARY KEY," +
@@ -30,6 +32,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
                     " %s TEXT NOT NULL," +
+                    " %s REAL NOT NULL," +
                     " %s REAL NOT NULL)",
             DatabaseContract.TABLE_FAV2,
             DatabaseContract.NoteColumns._ID,
@@ -38,7 +41,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             DatabaseContract.NoteColumns.DATE,
             DatabaseContract.NoteColumns.IMAGE2,
             DatabaseContract.NoteColumns.OVERVIEW,
-            DatabaseContract.NoteColumns.RATING
+            DatabaseContract.NoteColumns.RATING,
+            DatabaseContract.NoteColumns.POPULARITY
     );
     public static String DATABASE_NAME = "favorite";
 
